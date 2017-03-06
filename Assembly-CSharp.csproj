@@ -46,7 +46,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CanvasControl.cs" />
+     <Compile Include="Assets\Scripts\Control\CanvasControl.cs" />
+     <Compile Include="Assets\Scripts\Control\SymbolControl.cs" />
      <Compile Include="Assets\Scripts\generator\ScoreGenerator.cs" />
      <Compile Include="Assets\Scripts\symbol\Beat.cs" />
      <Compile Include="Assets\Scripts\symbol\BeatView.cs" />
@@ -68,12 +69,47 @@
      <Compile Include="Assets\Scripts\util\ParamsGetter.cs" />
      <Compile Include="Assets\Scripts\xmlParser\XmlFacade.cs" />
      <Compile Include="Assets\Scripts\xmlParser\XmlParser.cs" />
+     <None Include="Assets\Materials\MusicXml\爱上一个人.xml" />
      <None Include="Assets\Materials\example.xml" />
-     <None Include="Assets\Materials\印第安鼓.xml" />
-     <None Include="Assets\Materials\三个滑稽的小丑.xml" />
-     <None Include="Assets\Materials\两只小黑鸟.xml" />
-     <None Include="Assets\Materials\polka.xml" />
-     <None Include="Assets\Materials\test.xml" />
+     <None Include="Assets\Materials\MusicXml\等一会儿.xml" />
+     <None Include="Assets\Materials\MusicXml\三个滑稽的小丑.xml" />
+     <None Include="Assets\Materials\MusicXml\我们的世界.xml" />
+     <None Include="Assets\Materials\MusicXml\印第安小勇士.xml" />
+     <None Include="Assets\Materials\MusicXml\老妈妈哈伯德.xml" />
+     <None Include="Assets\Materials\MusicXml\两只小黑鸟.xml" />
+     <None Include="Assets\Materials\MusicXml\在动物园.xml" />
+     <None Include="Assets\Materials\MusicXml\大厅里的钟.xml" />
+     <None Include="Assets\Materials\MusicXml\小狗汪汪叫.xml" />
+     <None Include="Assets\Materials\MusicXml\五个玩具兵.xml" />
+     <None Include="Assets\Materials\MusicXml\在秋千上.xml" />
+     <None Include="Assets\Materials\MusicXml\我的瓦伦丁.xml" />
+     <None Include="Assets\Materials\MusicXml\摇滚兔.xml" />
+     <None Include="Assets\Materials\MusicXml\怪物龙.xml" />
+     <None Include="Assets\Materials\MusicXml\青蛙和蜜蜂.xml" />
+     <None Include="Assets\Materials\MusicXml\生日聚会.xml" />
+     <None Include="Assets\Materials\MusicXml\跳绳真有趣.xml" />
+     <None Include="Assets\Materials\MusicXml\电贝司.xml" />
+     <None Include="Assets\Materials\MusicXml\教堂的钟声.xml" />
+     <None Include="Assets\Materials\MusicXml\上去下来.xml" />
+     <None Include="Assets\Materials\MusicXml\玩单杠.xml" />
+     <None Include="Assets\Materials\MusicXml\我的儿子约翰.xml" />
+     <None Include="Assets\Materials\MusicXml\两只鸭子.xml" />
+     <None Include="Assets\Materials\MusicXml\机器人罗比.xml" />
+     <None Include="Assets\Materials\MusicXml\矮胖子.xml" />
+     <None Include="Assets\Materials\MusicXml\井里的凯蒂猫.xml" />
+     <None Include="Assets\Materials\MusicXml\四只蜘蛛墙上爬.xml" />
+     <None Include="Assets\Materials\MusicXml\金 鱼.xml" />
+     <None Include="Assets\Materials\MusicXml\红气球.xml" />
+     <None Include="Assets\Materials\MusicXml\G大调小步舞曲(1级).xml" />
+     <None Include="Assets\Materials\MusicXml\一闪一闪亮晶晶.xml" />
+     <None Include="Assets\Materials\MusicXml\小火车头.xml" />
+     <None Include="Assets\Materials\MusicXml\漂浮的云.xml" />
+     <None Include="Assets\Materials\MusicXml\愚蠢的稻草人.xml" />
+     <None Include="Assets\Materials\MusicXml\我的小灰猫.xml" />
+     <None Include="Assets\Materials\MusicXml\砰！砰！砰！.xml" />
+     <None Include="Assets\Materials\MusicXml\会唱歌的毛驴.xml" />
+     <None Include="Assets\Materials\MusicXml\狗熊在休息.xml" />
+     <None Include="Assets\Materials\MusicXml\印第安鼓.xml" />
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>

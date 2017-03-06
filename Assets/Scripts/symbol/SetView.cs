@@ -57,10 +57,12 @@ namespace symbol
                 if (_highSymbolList[i] is Note)
                 {
                     NoteView noteView = new NoteView(_highSymbolList[i], (int)noteLength, _paramsGetter.GetSymbolStart(), paramObject);
+                    _highSymbolList[i].SetSymbolView(noteView);
                 }
                 else if (_highSymbolList[i] is Rest)
                 {
                     RestView restView = new RestView(_highSymbolList[i], (int)noteLength, _paramsGetter.GetSymbolStart(), paramObject);
+                    _highSymbolList[i].SetSymbolView(restView);
                 }
             }
             for (int i = 0; i < _lowSymbolList.Count; i++)
@@ -81,10 +83,12 @@ namespace symbol
                 if (_lowSymbolList[i] is Note)
                 {
                     NoteView noteView = new NoteView(_lowSymbolList[i], (int)noteLength, _paramsGetter.GetSymbolStart(), paramObject);
+                    _lowSymbolList[i].SetSymbolView(noteView);
                 }
                 else if (_lowSymbolList[i] is Rest)
                 {
                     RestView restView = new RestView(_lowSymbolList[i], (int)noteLength, _paramsGetter.GetSymbolStart(), paramObject);
+                    _lowSymbolList[i].SetSymbolView(restView);
                 }
             }
         }

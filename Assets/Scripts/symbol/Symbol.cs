@@ -1,4 +1,6 @@
-﻿namespace symbol
+﻿using UnityEngine;
+
+namespace symbol
 {
     public abstract class Symbol
     {
@@ -36,6 +38,8 @@
         public bool IsChord() {return isChord;}
 
         public void SetChord(bool chord) {isChord = chord;}
+
+        public void ChangeColor(Color color) { GetSymbolView().SetColor(color); }
 
         public SymbolView GetSymbolView() {return symbolView;}
 

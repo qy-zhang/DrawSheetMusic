@@ -91,6 +91,7 @@ namespace symbol
             }
         }
 
+        // 绘制偏移线
         private void DrawShiftLine(int shift)
         {
             if (shift > 4)
@@ -113,7 +114,7 @@ namespace symbol
             }
         }
 
-
+        // 绘制变音记号
         private void DrawAccidental(string accidental, int position)
         {
             switch (accidental)
@@ -125,6 +126,7 @@ namespace symbol
             }
         }
 
+        // 绘制符干
         private void DrawStem()
         {
             if (_note.IsSlur())
@@ -140,6 +142,7 @@ namespace symbol
             }
         }
 
+        // 绘制符杠
         private void DrawBeam()
         {
             // 绘制符杠，根据之前计算出来的起始x坐标和起始y坐标，画到下一个连音符的x坐标，划的长度为乐符之间的间隔width
@@ -216,6 +219,7 @@ namespace symbol
             }
         }
 
+        // 绘制符尾
         private void DrawTail()
         {
             if (_note.IsUpOrDown())
@@ -242,6 +246,7 @@ namespace symbol
             }
         }
 
+        // 绘制和弦
         private void DrawChord()
         {
             bool leftOrRight = _note.IsUpOrDown();
@@ -286,5 +291,8 @@ namespace symbol
                 DrawLine(_stemX, extraPosition, _stemX, temp);
             }
         }
+
+
+
     }
 }

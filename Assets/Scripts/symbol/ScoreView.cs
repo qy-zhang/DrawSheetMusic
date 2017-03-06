@@ -9,9 +9,6 @@ namespace symbol
     {
         private List<List<Measure>> _scoreList;
         private GameObject[] _paramObject;
-        private GameObject _parentObject;
-        private GameObject _prefabSymbol;
-        private GameObject _prefabLine;
         private float[] _screenSize;
         private List<string> _scoreInfo;
         private ParamsGetter _paramsGetter = ParamsGetter.GetInstance();
@@ -19,9 +16,6 @@ namespace symbol
         public ScoreView(List<List<Measure>> scoreList, GameObject[] paramObject, float[] screenSize, List<string> scoreInfo)
         {
             _paramObject = paramObject;
-            _parentObject = paramObject[0];
-            _prefabSymbol = paramObject[1];
-            _prefabLine = paramObject[2];
             _scoreList = scoreList;
             _screenSize = screenSize;
             _scoreInfo = scoreInfo;
@@ -58,14 +52,15 @@ namespace symbol
                     paragraphPosition.z);
 
                 // 将paragraph画布对象赋为下一层的父对象
-                GameObject[] paramObject = new GameObject[4];
-                paramObject[0] = paragraphObject; paramObject[1] = _paramObject[1]; paramObject[2] = _paramObject[2]; paramObject[3] = _paramObject[3];
+                GameObject[] paramObject = new GameObject[3];
+                paramObject[0] = paragraphObject; paramObject[1] = _paramObject[1]; paramObject[2] = _paramObject[2];
 
                 // 绘制每一行的视图
                 ParagraphView paragraphView = new ParagraphView(_scoreList[i], paramObject);
             }
         }
 
+        // 绘制乐谱信息
         private void DrawScoreInfo()
         {
             Vector2 worktitlePosition = new Vector2(_screenSize[0] / 2, _screenSize[1] - 50);

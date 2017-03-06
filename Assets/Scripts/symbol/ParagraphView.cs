@@ -36,11 +36,8 @@ namespace symbol
                     measurePosition.y, measurePosition.z);
 
                 // 将Measure对象对象赋为下一层的父对象
-                GameObject[] paramObject = new GameObject[4];
-                paramObject[0] = measureObject;
-                paramObject[1] = _paramObject[1];
-                paramObject[2] = _paramObject[2];
-                paramObject[3] = _paramObject[3];
+                GameObject[] paramObject = new GameObject[3];
+                paramObject[0] = measureObject; paramObject[1] = _paramObject[1]; paramObject[2] = _paramObject[2];
 
                 // 绘制Measure视图
                 MeasureView measureView = new MeasureView(_paragraphList[i], paramObject);

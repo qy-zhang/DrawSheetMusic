@@ -8,8 +8,6 @@ namespace generator
     {
         private int _beats;
         private int _beatType;
-//        public Beat beat;
-//        public Head head;
         ParamsGetter _paramsGetter = ParamsGetter.GetInstance();
 
         public ScoreGenerator(string beats, string beatType)
