@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 62aec651e4bf94c3ea54023f3d90d705
+timeCreated: 1484016872
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: MScore
+  fontNames:
+  - MScore
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

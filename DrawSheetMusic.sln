@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{A61B08A7-AB45-E158-0F17-CF54E0DEC142}") = "DrawSheetMusic", "Assembly-CSharp.csproj", "{CA0C6C37-6738-68F1-C5EC-959E2D3D05CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA0C6C37-6738-68F1-C5EC-959E2D3D05CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA0C6C37-6738-68F1-C5EC-959E2D3D05CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA0C6C37-6738-68F1-C5EC-959E2D3D05CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA0C6C37-6738-68F1-C5EC-959E2D3D05CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
