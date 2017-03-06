@@ -15,7 +15,7 @@ public class CanvasControl : MonoBehaviour
     // Use this for initialization
 	private void Start ()
 	{
-//        DrawScore("Assets/Materials/polka.xml");
+//        DrawScore("Assets/Materials/example.xml");
 	    DrawScore("Assets/Materials/MusicXml/印第安鼓.xml");
 	}
 
@@ -51,7 +51,7 @@ public class CanvasControl : MonoBehaviour
         ScoreView scoreView = new ScoreView(scoreList, paramObjects, screenSize, scoreInfo);
 
         // 更改乐符颜色
-        Symbol symbol = scoreList[0][0].GetMeasureSymbolList()[0][1][3];
+        Symbol symbol = scoreList[0][0].GetMeasureSymbolList()[0][1][2];
         SymbolControl symbolControl = new SymbolControl(symbol);
         symbolControl.SetColor(Color.red);
     }

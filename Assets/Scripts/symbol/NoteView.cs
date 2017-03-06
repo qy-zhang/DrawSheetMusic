@@ -27,11 +27,26 @@ namespace symbol
 
         protected override void OnDraw()
         {
-            int yPosition =  ParamsGetter.GetStaffCenterPosition() + _note.GetShift(); // 乐符纵坐标
+            // 绘制定位线
+            if (Cursor)
+            {
+                int tempStart = Start - 2 + Num * _note.GetSymbolWidth();
+                DrawLine(tempStart, 0, tempStart, ParamsGetter.GetTotalHeight());
+            }
+
+            // 乐符纵坐标
+            int yPosition =  ParamsGetter.GetStaffCenterPosition() + _note.GetShift();
 
             int shift = _note.GetShift() / ParamsGetter.GetPitchPositionDiff();
-            DrawShiftLine(shift); // 偏移线，当超过6的时候会画线。传入参数为shift，因为以左下角为原点
+            // 偏移线，当超过6的时候会画线。传入参数为shift，因为以左下角为原点
+            DrawShiftLine(shift);
+            // 绘制变音记号
             DrawAccidental(_note.GetAccidental(), yPosition);
+
+            if (_note.GetDot() == 1)
+            {
+                DrawPoint(Start + ParamsGetter.GetDotePosition(), yPosition);
+            }
 
             if (Type == 1) // 全音符
             {
@@ -252,7 +267,7 @@ namespace symbol
             bool leftOrRight = _note.IsUpOrDown();
             int headPosition = Start;
             int lastPosition = 0;
-            int chordPaintNum = 0;
+//            int chordPaintNum = 0;
             // 绘制和弦中的其他乐符（最后一个乐符即当前乐符，已经绘制），去掉和弦表中的最后一个乐符
             for (int i = 0; i < _note.GetChordList().Count - 1; i++)
             {
@@ -291,8 +306,5 @@ namespace symbol
                 DrawLine(_stemX, extraPosition, _stemX, temp);
             }
         }
-
-
-
     }
 }
