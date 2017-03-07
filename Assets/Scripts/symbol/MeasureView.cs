@@ -9,20 +9,15 @@ namespace symbol
     public class MeasureView
     {
         private Measure _measure;
-        private GameObject[] _paramObject;
         private GameObject _parentObject;
-        private GameObject _prefabLine;
         private GameObject _measureLines;
         private ParamsGetter _paramsGetter = ParamsGetter.GetInstance();
+        private CommonParams _commonParams = CommonParams.GetInstance();
 
-        public MeasureView(Measure measure, GameObject[] paramObject)
+        public MeasureView(Measure measure, GameObject parentObject)
         {
             _measure = measure;
-
-            _paramObject = paramObject;
-            _parentObject = paramObject[0];
-            _prefabLine = paramObject[2];
-
+            _parentObject = parentObject;
             Init();
         }
 
@@ -63,16 +58,13 @@ namespace symbol
                 // 新建Set对象作为目录
                 string objName = "Set" + (i + 1);
                 GameObject setObject = new GameObject(objName);
-                setObject.transform.SetParent(_paramObject[0].transform);
+                setObject.transform.SetParent(_parentObject.transform);
                 setObject.transform.localPosition = new Vector3(setPosition.x + setLength * i + shift,
                     setPosition.y, setPosition.z);
 
                 // 将Set对象赋为下一层的父对象
-                GameObject[] paramObject = new GameObject[4];
-                paramObject[0] = setObject; paramObject[1] = _paramObject[1]; paramObject[2] = _paramObject[2];
-
                 // 绘制Set视图
-                SetView setView = new SetView(_measure.GetMeasureSymbolList()[i], paramObject, setLength);
+                SetView setView = new SetView(_measure.GetMeasureSymbolList()[i], setObject, setLength);
             }
         }
 
@@ -131,9 +123,7 @@ namespace symbol
             highHeadObject.transform.localPosition = Vector3.zero;
             Head highHead = _measure.GetHead()[0];
             // 将highHead对象对象赋为下一层的父对象
-            GameObject[] paramObject = new GameObject[3];
-            paramObject[0] = highHeadObject; paramObject[1] = _paramObject[1]; paramObject[2] = _paramObject[2];
-            HeadView highHeadView = new HeadView(highHead, paramObject);
+            HeadView highHeadView = new HeadView(highHead, highHeadObject);
 
             // 绘制低音符号
             GameObject lowHeadObject = new GameObject("LowHead");
@@ -141,8 +131,7 @@ namespace symbol
             lowHeadObject.transform.localPosition = Vector3.zero;
             Head lowHead = _measure.GetHead()[1];
             // 将highHead对象对象赋为下一层的父对象
-            paramObject[0] = lowHeadObject; paramObject[1] = _paramObject[1]; paramObject[2] = _paramObject[2];
-            HeadView lowHeadView = new HeadView(lowHead, paramObject);
+            HeadView lowHeadView = new HeadView(lowHead, lowHeadObject);
         }
 
         private void DrawBeat()
@@ -153,16 +142,16 @@ namespace symbol
             beatObject.transform.localPosition = Vector3.zero;
             Beat beat = _measure.GetBeat();
             // 将beat对象对象赋为下一层的父对象
-            GameObject[] paramObject = new GameObject[3];
-            paramObject[0] = beatObject; paramObject[1] = _paramObject[1]; paramObject[2] = _paramObject[2];
-            BeatView beatView = new BeatView(beat, paramObject);
+            BeatView beatView = new BeatView(beat, beatObject);
         }
 
         // 绘制线段
         private void DrawLine(float startX, float startY, float stopX, float stopY)
         {
             // 实例化一个线段对象
-            GameObject lineObject = GameObject.Instantiate(_prefabLine, _measureLines.transform.position, _prefabLine.transform.rotation);
+            GameObject lineObject = GameObject.Instantiate(_commonParams.GetPrefabLine(),
+                _measureLines.transform.position,
+                _commonParams.GetPrefabLine().transform.rotation);
             lineObject.transform.SetParent(_measureLines.transform);
             RectTransform lineRect = lineObject.GetComponent<RectTransform>();
             float width = Math.Max(startX, stopX) - Math.Min(startX, stopX) + 1;

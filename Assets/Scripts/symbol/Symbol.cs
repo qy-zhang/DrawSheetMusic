@@ -13,37 +13,37 @@ namespace symbol
         protected bool isChord;  //  是否是和弦
         protected SymbolView symbolView;
 
-        public int GetDuration() {return Duration;}
+        public int GetDuration() { return Duration; }
 
-        public void SetDuration(string divisions, string duration) {Duration = 64 * int.Parse(duration) / int.Parse(divisions);}
+        public void SetDuration(string divisions, string duration) { Duration = 64 * int.Parse(duration) / int.Parse(divisions); }
 
         public int GetStartTime() { return StartTime; }
 
-        public void SetStartTime(int startTime) {StartTime = startTime * 100 / 12;}
+        public void SetStartTime(int startTime) { StartTime = startTime * 100 / 12; }
 
-        public int GetStopTime() {return StopTime;}
+        public int GetStopTime() { return StopTime; }
 
-        public void SetStopTime(int stopTime) {StopTime = stopTime * 100 / 12;}
+        public void SetStopTime(int stopTime) { StopTime = stopTime * 100 / 12; }
 
-        public new int GetType() {return Type;}
+        public new int GetType() { return Type; }
 
-        public int GetDot() {return Dot;}
+        public int GetDot() { return Dot; }
 
-        public void SetDot(int dot) {Dot = dot;}
+        public void SetDot(int dot) { Dot = dot; }
 
-        public int GetSymbolWidth() {return SymbolWidth;}
+        public int GetSymbolWidth() { return SymbolWidth; }
 
-        public void SetSymbolWidth(int symbolWidth) {SymbolWidth = symbolWidth;}
+        public void SetSymbolWidth(int symbolWidth) { SymbolWidth = symbolWidth; }
 
-        public bool IsChord() {return isChord;}
+        public bool IsChord() { return isChord; }
 
-        public void SetChord(bool chord) {isChord = chord;}
+        public void SetChord(bool chord) { isChord = chord; }
 
         public void ChangeColor(Color color) { GetSymbolView().SetColor(color); }
 
-        public SymbolView GetSymbolView() {return symbolView;}
+        public SymbolView GetSymbolView() { return symbolView; }
 
-        public void SetSymbolView(SymbolView symbolview) {symbolView = symbolview;}
+        public void SetSymbolView(SymbolView symbolview) { symbolView = symbolview; }
 
         public abstract void SetType(string type);
 

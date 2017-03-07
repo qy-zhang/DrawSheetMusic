@@ -1,7 +1,7 @@
 ﻿using symbol;
 using UnityEngine;
 
-namespace Control
+namespace control
 {
     public class SymbolControl
     {

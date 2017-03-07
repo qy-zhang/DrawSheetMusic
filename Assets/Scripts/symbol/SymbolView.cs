@@ -19,23 +19,17 @@ namespace symbol
         protected bool RightPlay; // 是否已正确演奏
         protected List<int> Chord = new List<int>(); // 演奏正确的和弦
         protected ParamsGetter ParamsGetter = ParamsGetter.GetInstance();
+        protected CommonParams CommonParams = CommonParams.GetInstance();
 
-        protected GameObject[] ParamObjects;
         protected GameObject ParentObject; // 对象的父对象
-        protected GameObject PrefabSymbol; // 音符对象的实例
-        protected GameObject PrefabLine; // 线段对象的实例
-
 
         public SymbolView() {}
 
-        public SymbolView(Symbol symbol, int width, int start, GameObject[] paramObjects) {
+        public SymbolView(Symbol symbol, int width, int start, GameObject parentObject) {
             this.symbol = symbol;
             Width = width;
             Start = start;
-            ParamObjects = paramObjects;
-            ParentObject = ParamObjects[0];
-            PrefabSymbol = ParamObjects[1];
-            PrefabLine = ParamObjects[2];
+            ParentObject = parentObject;
             Init();
         }
 
@@ -80,7 +74,9 @@ namespace symbol
         // 绘制乐符文字
         protected void DrawSymbol(string text, float x, float y)
         {
-            GameObject symbolObject = GameObject.Instantiate(PrefabSymbol, ParentObject.transform.position, PrefabSymbol.transform.rotation);
+            GameObject symbolObject = GameObject.Instantiate(CommonParams.GetPrefabSymbol(),
+                ParentObject.transform.position,
+                CommonParams.GetPrefabSymbol().transform.rotation);
             symbolObject.transform.SetParent(ParentObject.transform);
             Text noteText = symbolObject.GetComponent<Text>();
             noteText.transform.localPosition = new Vector3(x, y, 0);
@@ -91,7 +87,9 @@ namespace symbol
         protected void DrawLine(float startX, float startY, float stopX, float stopY)
         {
             // 实例化一个线段对象
-            GameObject lineObject = GameObject.Instantiate(PrefabLine, ParentObject.transform.position, PrefabLine.transform.rotation);
+            GameObject lineObject = GameObject.Instantiate(CommonParams.GetPrefabLine(),
+                ParentObject.transform.position,
+                CommonParams.GetPrefabLine().transform.rotation);
             lineObject.transform.SetParent(ParentObject.transform);
             RectTransform lineRect = lineObject.GetComponent<RectTransform>();
             float width = Math.Max(startX, stopX) - Math.Min(startX, stopX) + 1;
@@ -105,7 +103,9 @@ namespace symbol
         protected void DrawLine(float startX, float startY, float stopX, float stopY, int strokeWidth)
         {
             // 实例化一个线段对象
-            GameObject lineObject = GameObject.Instantiate(PrefabLine, ParentObject.transform.position, PrefabLine.transform.rotation);
+            GameObject lineObject = GameObject.Instantiate(CommonParams.GetPrefabLine(),
+                ParentObject.transform.position,
+                CommonParams.GetPrefabLine().transform.rotation);
             lineObject.transform.SetParent(ParentObject.transform);
             RectTransform lineRect = lineObject.GetComponent<RectTransform>();
             float width = Math.Max(startX, stopX) - Math.Min(startX, stopX) + strokeWidth;

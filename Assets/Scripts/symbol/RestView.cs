@@ -6,7 +6,7 @@ namespace symbol
     public class RestView : SymbolView
     {
         private Rest _rest;
-        public RestView(Symbol symbol, int width, int start, GameObject[] paramObjects) : base(symbol, width, start, paramObjects)
+        public RestView(Symbol symbol, int width, int start, GameObject parentObject) : base(symbol, width, start, parentObject)
         {
             _rest = (Rest) symbol;
             Init();

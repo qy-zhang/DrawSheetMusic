@@ -14,7 +14,7 @@ namespace symbol
         private int _tailX;  //  符尾起始横坐标
         private int _tailY;  //  符尾起始纵坐标
 
-        public NoteView(Symbol symbol, int width, int start, GameObject[] paramObjects) : base(symbol, width, start, paramObjects)
+        public NoteView(Symbol symbol, int width, int start, GameObject parentObject) : base(symbol, width, start, parentObject)
         {
             _note = (Note)symbol;
             Init();

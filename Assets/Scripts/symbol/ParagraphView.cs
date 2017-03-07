@@ -6,14 +6,12 @@ namespace symbol
     public class ParagraphView
     {
         private List<Measure> _paragraphList;
-        private GameObject[] _paramObject;
         private GameObject _parentObject;
 
-        public ParagraphView(List<Measure> paragraphList, GameObject[] paramObject)
+        public ParagraphView(List<Measure> paragraphList, GameObject parentObject)
         {
             _paragraphList = paragraphList;
-            _paramObject = paramObject;
-            _parentObject = paramObject[0];
+            _parentObject = parentObject;
             Init();
         }
 
@@ -36,11 +34,8 @@ namespace symbol
                     measurePosition.y, measurePosition.z);
 
                 // 将Measure对象对象赋为下一层的父对象
-                GameObject[] paramObject = new GameObject[3];
-                paramObject[0] = measureObject; paramObject[1] = _paramObject[1]; paramObject[2] = _paramObject[2];
-
                 // 绘制Measure视图
-                MeasureView measureView = new MeasureView(_paragraphList[i], paramObject);
+                MeasureView measureView = new MeasureView(_paragraphList[i], measureObject);
 
                 // 调整下一个小节的起始横坐标
                 measurePosition.x += _paragraphList[i].GetMeasureLength();
