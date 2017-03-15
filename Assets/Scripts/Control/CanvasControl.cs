@@ -9,11 +9,6 @@ namespace control
 {
     public class CanvasControl : MonoBehaviour
     {
-        public Material LineMaterial;
-        public GameObject PrefabSymbol;
-        public GameObject PrefabText;
-        public GameObject PrefabLine;
-        public GameObject PrefabFileButton;
         private CommonParams _commonParams = CommonParams.GetInstance();
 
         // Use this for initialization

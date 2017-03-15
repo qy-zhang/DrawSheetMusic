@@ -54,7 +54,7 @@ namespace control
             DirectoryInfo xmlFolder = new DirectoryInfo(_commonParams.GetXmlFolderPath());
 
             int xmlFileCount = 0;
-            Vector3 buttonPosition = new Vector3(300, 700, 0);
+            Vector3 buttonPosition = new Vector3(Screen.width/2, Screen.height - 100, 0);
             foreach (FileInfo xmlFile in xmlFolder.GetFiles())
             {
                 if (xmlFile.Extension == ".xml")

@@ -7,7 +7,7 @@ namespace util
         private static CommonParams instance = new CommonParams();
 
         // 作为公共数据存储类
-        private string _scoreName = "";
+        private string _scoreName = "Assets/Materials/MusicXml/印第安鼓.xml";
         private string _xmlFolderPath = "Assets/Materials/MusicXml";
         private GameObject _prefabSymbol;
         private GameObject _prefabText;
@@ -16,7 +16,14 @@ namespace util
 
         public static CommonParams GetInstance() { return instance; }
 
-        public string GetScoreName() { return _scoreName; }
+        public string GetScoreName()
+        {
+            if (Application.platform == RuntimePlatform.Android) // android
+            {
+                _scoreName += Application.streamingAssetsPath;
+            }
+            return _scoreName;
+        }
 
         public void SetScoreName(string scoreName) { _scoreName = scoreName; }
 
