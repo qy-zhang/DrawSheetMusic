@@ -1,3 +1,3 @@
 # Readme
 
-解析musicxml文件并通过Unity绘制
+Parse Musicxml files and draw sheet music in Unity.
